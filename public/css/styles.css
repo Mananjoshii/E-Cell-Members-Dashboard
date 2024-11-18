@@ -1,0 +1,152 @@
+/* Reset styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body Styles */
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #8a1818; /* Black background */
+  color: #ffffff; /* White text */
+  padding-top: 30px;
+}
+.dash{
+  text-align: center;
+  
+}
+/* Header Styles */
+header {
+  padding: 20px;
+  background-color: #1a1a1a; /* Dark grey for slight contrast */
+  color: #ffffff;
+  border-bottom: 4px solid #007bff;
+}
+
+header a {
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+header a:hover {
+  color: #007bff;
+  text-decoration: underline;
+}
+
+header .d-grid {
+  justify-content: flex-end;
+}
+
+/* Heading Styles */
+h1 {
+  font-size: 2.5rem;
+  text-align: center;
+  margin: 40px 0;
+  color: #fcfcfc; /* White heading */
+}
+
+/* Member List Styles */
+.members {
+  max-width: 1200px;
+  margin: 50px auto;
+  padding: 0 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  
+}
+
+.members .member-card {
+  background-color: #ffffff; /* White card */
+  border: 1px solid #e0e0e0; /* Subtle border for cards */
+  border-radius: 10px;
+  width: 250px;
+  padding: 15px;
+  box-shadow: 0 8px 15px rgba(80, 255, 153, 0.75); /* Box shadow added */
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.members .member-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.4); /* Slightly deeper shadow on hover */
+}
+
+.members img {
+  border-radius: 8px;
+  width: 100%;
+  height: auto;
+  max-height: 150px;
+  object-fit: cover;
+  margin-bottom: 10px;
+  border: 1px solid #cccccc; /* Border around images */
+}
+
+.members h2 {
+  color: #333333; /* Dark gray for text contrast on white */
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+
+.members p {
+  font-size: 1rem;
+  color: #666666; /* Medium gray for better readability */
+  margin-bottom: 10px;
+}
+
+/* Button Styles */
+header .btn {
+  background-color: #007bff;
+  color: rgb(255, 255, 255);
+  border: none;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+header .btn:hover {
+  background-color: #0056b3;
+  color: #ffffff;
+}
+
+header a.btn {
+  color: white; /* Ensure link buttons remain readable */
+  text-decoration: none;
+}
+
+header a.btn:hover {
+  text-decoration: none;
+}
+
+/* Responsive Design for smaller screens */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2rem;
+  }
+
+  header {
+    padding: 15px;
+  }
+
+  .members {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .members .member-card {
+    width: 90%;
+  }
+}
+.main{
+  background: #000;
+}
+.member-card img {
+  width: 100%;                /* Ensure the image takes up the full width of the card */
+  height: auto;               /* Maintain aspect ratio while scaling */
+  object-fit:fill;          /* Ensures the image covers the space without stretching */
+  max-height: 200px;          /* You can adjust this height as needed */
+  border-radius: 10px;        /* Optional: adds rounded corners to the image */
+}

@@ -7,12 +7,14 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 import multer from 'multer';
 import methodOverride from 'method-override';
+import env from "dotenv";
 
 // Define __dirname for ES module
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const app = express();
+env.config();
 
 // Middleware
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -31,14 +33,14 @@ app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 
 // PostgreSQL database connection
-const { Client } = pg;
 
-const db = new Client({
-  host: process.env.HOST,
-  user: process.env.USER,
-  password: process.env.PASSWORD,
-  database: process.env.DATABASE,
-  port: process.env.PORT,
+
+const db = new pg.Client({
+  host: process.env.PG_HOST,
+  user: process.env.PG_USER,
+  password: process.env.PG_PASSWORD,
+  database: process.env.PG_DATABASE,
+  port: process.env.PG_PORT,
 });
 
 db.connect()

@@ -17,11 +17,13 @@
     "connect-pg-simple": "^10.0.0",
     "dotenv": "^16.4.5",
     "ejs": "^3.1.10",
+    "exceljs": "^4.4.0",
     "express": "^4.21.1",
     "express-session": "^1.18.1",
     "method-override": "^3.0.0",
     "multer": "^1.4.5-lts.1",
     "mysql2": "^3.11.4",
+    "pdfmake": "^0.2.15",
     "pg": "^8.13.1"
   }
 }

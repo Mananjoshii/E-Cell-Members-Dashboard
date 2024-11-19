@@ -14,25 +14,32 @@
     <!-- Add a Single Member Section -->
     <div class="form-container">
       <h2 class="add">Add a Member</h2>
-      <form action="/members" method="POST" enctype="multipart/form-data">
-        <div class="mb-3">
-          <label for="name" class="form-label">Name:</label>
-          <input type="text" name="name" id="name" class="form-control" required>
-        </div>
-        <div class="mb-3">
-          <label for="role" class="form-label">Role:</label>
-          <input type="text" name="role" id="role" class="form-control" required>
-        </div>
-        <div class="mb-3">
-          <label for="contact" class="form-label">Contact:</label>
-          <input type="text" name="contact" id="contact" class="form-control" required>
-        </div>
-        <div class="mb-3">
-          <label for="photo" class="form-label">Photo:</label>
-          <input type="file" name="photo" id="photo" class="form-control" accept="image/*">
-        </div>
-        <button type="submit" class="btn btn-primary w-100">Add Member</button>
-      </form>
+      <!-- Dashboard view for adding members and managing roles -->
+<form action="/members" method="POST" enctype="multipart/form-data">
+  <div class="mb-3">
+    <label for="name" class="form-label">Name</label>
+    <input type="text" class="form-control" id="name" name="name" required>
+  </div>
+  <div class="mb-3">
+    <label for="role" class="form-label">Role</label>
+    <select class="form-select" id="role" name="role" required>
+      <option value="Admin">Mentors</option>
+      <option value="Tech">Tech</option>
+      <option value="Design">Design</option>
+      <option value="Marketing">Marketing</option>
+    </select>
+  </div>
+  <div class="mb-3">
+    <label for="contact" class="form-label">Contact</label>
+    <input type="text" class="form-control" id="contact" name="contact" required>
+  </div>
+  <div class="mb-3">
+    <label for="photo" class="form-label">Upload Photo</label>
+    <input type="file" class="form-control" id="photo" name="photo">
+  </div>
+  <button type="submit" class="btn btn-primary">Add Member</button>
+</form>
+
     </div>
 
     <!-- Existing Members Section -->

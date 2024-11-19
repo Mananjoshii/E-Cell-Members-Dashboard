@@ -68,11 +68,37 @@ const upload = multer({ storage: storage });
 // Routes
 
 // Home page displaying members
+// Home page displaying members categorized by role
 app.get('/', (req, res) => {
   const query = 'SELECT * FROM members';
   db.query(query)
     .then((result) => {
-      res.render('index.ejs', { members: result.rows });
+      // Group members by role
+      const categorizedMembers = result.rows.reduce((acc, member) => {
+        const role = member.role || 'Uncategorized';
+        if (!acc[role]) {
+          acc[role] = [];
+        }
+        acc[role].push(member);
+        return acc;
+      }, {});
+
+      res.render('index.ejs', { categorizedMembers });
+    })
+    .catch((err) => {
+      res.status(500).send('Database error.');
+    });
+});
+
+// Add a new member with role and image upload
+app.post('/members', upload.single('photo'), (req, res) => {
+  const { name, role, contact } = req.body;
+  const photo = req.file ? `/uploads/${req.file.filename}` : null; // File path to save in DB
+
+  const query = 'INSERT INTO members (name, role, contact, photo) VALUES ($1, $2, $3, $4)';
+  db.query(query, [name, role, contact, photo])
+    .then(() => {
+      res.redirect('/dashboard');
     })
     .catch((err) => {
       res.status(500).send('Database error.');

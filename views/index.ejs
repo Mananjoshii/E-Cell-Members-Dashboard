@@ -9,30 +9,33 @@
   <div ><header>
     <span><h1 class="dash" >E Cell Members Dashboard</h1></span>
     <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-      
       <a href="/login" class="btn btn-primary me-md-2" role="button">Login</a>
       <a href="/register" class="btn btn-primary" role="button">Register</a>
     </div>
-    
   </header>
   
   <div class="members">
-    <% members.forEach(member => { %>
-      <div class="member-card">
-        <% if (member.photo) { %>
-          <img src="<%= member.photo %>" alt="<%= member.name %>">
-        <% } else { %>
-          <img src="/default-photo.jpg" alt="Default Member Photo">
-        <% } %>
-        <h2><%= member.name %></h2>
-        <p>Role: <%= member.role %></p>
-        <p>Contact: <%= member.contact %></p>
+    <% Object.keys(categorizedMembers).forEach(role => { %>
+      <div class="role-category">
+        <h3 style="color: rgb(255, 255, 255);"><%= role %> Members</h3>
+        <div class="member-cards">
+          <% categorizedMembers[role].forEach(member => { %>
+            <div class="member-card">
+              <% if (member.photo) { %>
+                <img src="<%= member.photo %>" alt="<%= member.name %>">
+              <% } else { %>
+                <img src="/default-photo.jpg" alt="Default Member Photo">
+              <% } %>
+              <h2><%= member.name %></h2>
+              <p>Role: <%= member.role %></p>
+              <p>Contact: <%= member.contact %></p>
+            </div>
+          <% }); %>
+        </div>
       </div>
     <% }); %>
   </div></div>
-  
-  
-  
+
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 </html>
